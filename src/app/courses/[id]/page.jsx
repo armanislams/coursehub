@@ -14,7 +14,7 @@ export default async function courseDetails({params}) {
             src={course.image || course.imageUrl}
                       alt={course.title}
                       width={500}
-                      height={500}
+                      height={800}
             className="w-full h-64 object-cover rounded"
           />
           <h1 className="text-2xl font-bold mt-4 text-base-content">

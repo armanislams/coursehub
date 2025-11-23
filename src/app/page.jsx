@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div
-      suppressHydrationWarning={true}
+      
       className="flex flex-col gap-10 py-5 min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black"
     >
       <Hero></Hero>
