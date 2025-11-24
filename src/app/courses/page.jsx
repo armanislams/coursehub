@@ -2,6 +2,7 @@
 import CourseCard from '@/components/courseCard';
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { useEffect, useState } from 'react';
+import getAllCourse from '../../../lib/getAllCourse';
 
 export default function courses() {
    const [course, setCourse] =useState([])
@@ -11,10 +12,7 @@ export default function courses() {
     );
     useEffect(() => {
         async function load() {
-             const data = await fetch(
-               "https://learn-hub-server-nine.vercel.app/course"
-             );
-            const course = await data.json();
+            const course = await getAllCourse();
             setCourse(course)
         }
         load()

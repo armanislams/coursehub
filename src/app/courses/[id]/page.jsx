@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import React from 'react'
+import getCourse from '../../../../lib/getCourse';
 
 export default async function courseDetails({params}) {
     const { id } = await params;
-    const data = await fetch(`https://learn-hub-server-nine.vercel.app/course/${id}`)
-    const course = await data.json()
+    const course = await getCourse(id)
   return (
-    <div className="container mx-auto py-10 px-4">
-      <div className="grid md:grid-cols-3 gap-6">
+    <div className="container mx-auto py-10 px-4 bg-indigo-500">
+      <div className="grid md:grid-cols-3 gap-10">
         {/* Left side */}
         <div className="md:col-span-2 bg-base-100 p-6 rounded shadow">
           <Image
@@ -17,19 +17,19 @@ export default async function courseDetails({params}) {
                       height={800}
             className="w-full h-64 object-cover rounded"
           />
-          <h1 className="text-2xl font-bold mt-4 text-base-content">
+          <h1 className="text-2xl font-bold mt-4 ">
             {course.title}
           </h1>
-          <p className="text-base-content/70 mt-2">{course.description}</p>
+          <p className=" mt-2">{course.description}</p>
         </div>
 
         {/* Right side */}
-        <aside className="p-6 bg-base-100 rounded shadow mx-auto flex flex-col justify-center">
+        <aside className="p-6 bg-base-100 rounded shadow mx-auto w-full flex flex-col items-center justify-center">
           <h1 className="text-xl font-bold mt-4 text-base-content">
-            Duration: <br /> {course.duration}
+            Duration: {course.duration}
           </h1>
           <h1 className="text-xl font-bold mt-4 text-base-content">
-            Category: <br /> {course.category}
+            Category:  {course.category}
           </h1>
           <div className="font-semibold mt-5 text-base-content">
             Price: $ {course.price}

@@ -1,0 +1,5 @@
+fix up add course component
+## do nextAuth
+make login register
+implement privateroute
+fix protected pages 

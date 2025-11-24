@@ -6,7 +6,7 @@ export default function Navbar() {
     <Link className='px-5' href={'/'}><li>Home</li></Link>
     <Link className='px-5' href={'/about-us'}><li>About Us</li></Link>
     <Link className='px-5' href={'/contact-us'}><li>Contact Us</li></Link>
-    <Link className='px-5' href={'/register'}><li>Register</li></Link>
+    <Link className='px-5' href={'/add-course'}><li>Create A Course</li></Link>
     <Link className='px-5' href={'/courses'}><li>All Course</li></Link>
     </>
   return (

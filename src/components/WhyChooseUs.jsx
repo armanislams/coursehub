@@ -15,7 +15,7 @@ export default function WhyChooseUs() {
           (item, i) => (
             <div
               key={i}
-              whileHover={{ scale: 1.05 }}
+              whilehover={{ scale: 1.05 }}
               className="bg-indigo-50 dark:bg-indigo-900 p-6 rounded-xl shadow-sm hover:shadow-md transition"
             >
               <h3 className="text-lg font-semibold text-indigo-700 dark:text-indigo-300 mb-2">

@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div
       
