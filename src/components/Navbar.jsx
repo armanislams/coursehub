@@ -1,14 +1,37 @@
+'use client'
+import { useAuth } from '@/context/AuthContext';
 import Link from 'next/link';
 import React from 'react'
+import { toast } from 'react-toastify';
 
 export default function Navbar() {
-    const links = <>
-    <Link className='px-5' href={'/'}><li>Home</li></Link>
-    <Link className='px-5' href={'/about-us'}><li>About Us</li></Link>
-    <Link className='px-5' href={'/contact-us'}><li>Contact Us</li></Link>
-    <Link className='px-5' href={'/add-course'}><li>Create A Course</li></Link>
-    <Link className='px-5' href={'/courses'}><li>All Course</li></Link>
-    </>
+  const {user, logOut} = useAuth()
+    const links = (
+      <>
+        <Link className="px-5" href={"/"}>
+          <li>Home</li>
+        </Link>
+        <Link className="px-5" href={"/add-course"}>
+          <li>Create A Course</li>
+        </Link>
+        <Link className="px-5" href={"/courses"}>
+          <li>All Course</li>
+        </Link>
+        {user && (
+          <Link className="px-5" href={"/manage-courses"}>
+            <li>Manage Course</li>
+          </Link>
+        )}
+      </>
+    );
+  const handleLogout = () => {
+    try {
+      logOut()
+      toast.success('logged out successfully')
+    } catch {
+      toast.error('Something went wrong')
+    }
+  }
   return (
       <div className="navbar bg-base-100 shadow-sm sticky top-0 z-50">
       <div className="navbar-start">
@@ -37,7 +60,7 @@ export default function Navbar() {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">CourseHub</a>
+        <Link href={'/'} className="btn btn-ghost text-xl">CourseHub</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -45,7 +68,10 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link href={'/login'} className="btn">Login</Link>
+        {
+          user ? <button onClick={handleLogout} className="btn btn-primary">LogOut</button> : <Link href={'/login'} className="btn">Login</Link>
+          
+        }
       </div>
     </div>
   );

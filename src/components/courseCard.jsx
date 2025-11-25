@@ -5,7 +5,7 @@ export default function CourseCard({ c }) {
   return (
     <article className="bg-white rounded border overflow-hidden shadow hover:shadow-lg transition">
       <Image
-        src={c.image}
+        src={c.image || 'image not found'}
         alt=""
         width={500}
         height={500}

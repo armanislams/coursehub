@@ -31,7 +31,7 @@ export default function ManageProducts() {
   }
 
   return (
-    <div className="p-6">
+    <div className="p-6 text-center">
       <h1 className="text-2xl font-semibold mb-4">Manage Products</h1>
       <p className="text-slate-600 mb-6">View and manage all products.</p>
 

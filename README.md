@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Course Management App
 
-## Getting Started
+A modern web application built with **Next.js**, **Firebase Authentication**, and **TailwindCSS**.  
+Users can log in using Email/Password or Google, manage courses, and access protected pages.  
+Admins can add, update, and manage courses through a clean and responsive dashboard.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+- User Authentication (Email + Google)
+- Client-side protected routes using a custom AuthContext
+- Add, View, and Manage Courses
+- Responsive UI with TailwindCSS
+- Firebase-powered auth system
+- Fast routing using the Next.js App Router (app directory)
+
+---
+
+## 📦 Installation & Setup
+
+### 1. Clone the project
 
 ```bash
+git clone gitUrl
+cd my-app
+Install dependencies
+npm install
+
+Firebase Configuration
+
+Create a file:
+
+/lib/firebase.js
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+
+const firebaseConfig = {
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+};
+
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+
+Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Project Structure (Simplified)
+app/
+ ├── login/
+ ├── signup/
+ ├── add-course/
+ ├── manage-course/
+ ├── layout.js
+ ├── page.js
+context/
+ └── AuthContext.js
+lib/
+ └── firebase.js
+components/
+ └── ProtectedRoute.jsx
+ └── Navbar.jsx
+ └── Footer.jsx
+ └── and others

@@ -1,3 +1,4 @@
+import FeaturedCourse from "@/components/FeaturedCourse";
 import Hero from "@/components/Hero";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Image from "next/image";
@@ -10,6 +11,7 @@ export default async function Home() {
     >
       <Hero></Hero>
       <WhyChooseUs />
+      <FeaturedCourse/>
     </div>
   );
 }

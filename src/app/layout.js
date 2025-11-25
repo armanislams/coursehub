@@ -2,6 +2,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { AuthProvider } from "@/context/AuthContext";
+import { ToastContainer } from "react-toastify";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +28,15 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-7xl mx-auto`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <AuthProvider>
+          <ErrorBoundary>
+            <Navbar />
+            {children}
+
+            <ToastContainer></ToastContainer>
+            <Footer />
+          </ErrorBoundary>
+        </AuthProvider>
       </body>
     </html>
   );
