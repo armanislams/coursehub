@@ -23,7 +23,7 @@ async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     client.connect();
-    const db = client.db("learn-hub");
+    const db = client.db("course-hub");
     const usersCollection = db.collection("users");
     const courseCollection = db.collection("courses");
     const enrollmentCollection = db.collection("enrollments");

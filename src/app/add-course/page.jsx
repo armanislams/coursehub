@@ -21,12 +21,10 @@ export default function AddCourse() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await fetch(
-          "https://learn-hub-server-nine.vercel.app/create-course", {
-              method: 'post',
-              body: form
-        },
-      );
+      await fetch("https://backend-gilt-psi-36.vercel.app/create-course", {
+        method: "post",
+        body: form,
+      });
       toast.success("Course added!");
 
       // clear or redirect

@@ -10,9 +10,7 @@ export default function ManageProducts() {
   // Fetch products
   useEffect(() => {
     async function load() {
-      const res = await fetch(
-        "https://learn-hub-server-nine.vercel.app/course"
-      );
+      const res = await fetch("https://backend-gilt-psi-36.vercel.app/course");
       const data = await res.json();
       setCourses(data);
     }
@@ -24,7 +22,7 @@ export default function ManageProducts() {
     const confirmDelete = confirm("Are you sure?");
     if (!confirmDelete) return;
 
-    await fetch(`https://learn-hub-server-nine.vercel.app/course/${id}`, {
+    await fetch(`https://backend-gilt-psi-36.vercel.app/course/${id}`, {
       method: "DELETE",
     });
     setCourses(courses.filter((p) => p.id !== id));
