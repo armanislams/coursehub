@@ -30,7 +30,7 @@ return (
         <FaMagnifyingGlass className="absolute top-3 right-1" />
       </div>
     </div>
-    <div className="grid grid-cols-4 my-5 gap-5">
+    <div className="grid md:grid-cols-4 my-5 gap-5">
       {filtered.map((c) => (
         <CourseCard key={c._id} c={c}></CourseCard>
       ))}
